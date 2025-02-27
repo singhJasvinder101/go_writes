@@ -11,11 +11,11 @@ This project generates realistic handwritten text by assembling character images
 </p>
 
 
-# Analyze thresholds
+## Analyze thresholds
 
 <p align="center">
   <img src="output2.png" alt="Image 1" width="45%" />
-  <img src="output1.png" alt="Image 2" width="25%" height="323rem" />
+  <img src="output1.png" alt="Image 2" width="25%" height="273rem" />
 </p>
 
 
