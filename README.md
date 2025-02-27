@@ -3,6 +3,14 @@
 ## 📌 Overview
 This project generates realistic handwritten text by assembling character images from a dataset and overlaying them onto a background. It processes input text and converts it into an image representation, mimicking a handwritten document. Additionally, it includes utilities for font extraction and preprocessing.
 
+## Demo
+
+<p align="center">
+  <video width="12rem" src="https://github.com/user-attachments/assets/e3dd38a6-2283-41b4-a23a-7d12e827f38e"> </video>
+</p>
+
+
+
 ## Output Images  
 
 <p align="center">
@@ -60,9 +68,6 @@ python3 generate_font.py
 ```
 This extracts character images from `image.png` and saves them in `cropped_chars`.
 
-
-#### Convert & Resize Fonts
-Processes all PNG images in `archive/train copy` and applies resizing & padding.
 
 ## 📂 Project Structure
 ```
