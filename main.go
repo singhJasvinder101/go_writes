@@ -14,26 +14,31 @@ import (
 )
 
 const (
-	// fontsDir     = "cropped_char"	(if custom font available)
 	fontsDir = "archive/train copy"
 	defaultFile = "dummy.txt" 
 	bgImagePath = "myfont/bg.png"
 	outputImage = "output.png"
 	lineHeight = 140 
 	charSpacing = 0  
-	spaceWidth = 70 
-	index = 30
+	spaceWidth = 70
 
+	
 	charWidth = 60  
 	charHeight = 150 
 )
 
+var index int = 30
 var outputFileName int
+var similarFont string
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
 	fileName := getFileName()
+
+	fmt.Println("Do you want similar font for each character (type y) or similar (type n)") 
+	fmt.Scanln(&similarFont)
+
 	text, err := os.ReadFile(fileName)
 	if err != nil {
 		fmt.Println("Error reading file, using default text")
@@ -76,7 +81,7 @@ func renderTextToImage(text string, startIndex, gap, ht int) {
 		}
 		charFolder := fmt.Sprintf("%s/%d", fontsDir, char)
 
-		fmt.Println("character", string(char))
+		fmt.Println("character from the text ", string(char))
 		charImagePath, err := getRandomImage(charFolder)
 		if err != nil {
 			fmt.Printf("No images found for character %c\n", char)
@@ -138,14 +143,20 @@ func getFileName() string {
 func getRandomImage(dir string) (string, error) {
 	files, err := os.ReadDir(dir)
 
-	fmt.Println("files ",files)
+	// fmt.Println("files ",files)
 	if err != nil || len(files) == 0 {
 		return "", fmt.Errorf("no images found")
 	}
 
-	if index > len(files) {
-		return "", fmt.Errorf("no images found")
+	if !(similarFont == "y") {
+		index = rand.Intn(len(files))
 	}
+	
+	if index >= len(files) {
+		fmt.Println("Index out of bounds. Selecting a random font instead.")
+		index = rand.Intn(len(files))
+	}
+
 	randomFile := files[index].Name()
 	return filepath.Join(dir, randomFile), nil
 }

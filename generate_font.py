@@ -38,7 +38,7 @@ for cnt in cnts:
 
     roi = image[y:y+h, x:x+w]
     aspect_ratio = w / h
-    if aspect_ratio > (TARGET_WIDTH / TARGET_HEIGHT):  # Too wide, limit width
+    if aspect_ratio > (TARGET_WIDTH / TARGET_HEIGHT):
         new_w = TARGET_WIDTH
         new_h = int(TARGET_WIDTH / aspect_ratio)
     else: 
@@ -54,7 +54,7 @@ for cnt in cnts:
 
     final_image[y_offset:y_offset+new_h, x_offset:x_offset+new_w] = resized_roi
 
-    cv2.imwrite(os.path.join(output_folder, f"roi_{i}.png"), final_image)
+    cv2.imwrite(os.path.join(output_folder, f"char_{i}.png"), final_image)
 
     cv2.rectangle(orig, (x, y), (x + w, y + h), (0, 255, 0), 2)
 
