@@ -1,7 +1,24 @@
-# AI-Powered Handwritten Text Generator
+# CLI Tool for Handwritten Text Generator
 
 ## 📌 Overview
 This project generates realistic handwritten text by assembling character images from a dataset and overlaying them onto a background. It processes input text and converts it into an image representation, mimicking a handwritten document. Additionally, it includes utilities for font extraction and preprocessing.
+
+## Output Images  
+
+<p align="center">
+  <img src="1.png" alt="Image 1" width="45%" />
+  <img src="2.png" alt="Image 2" width="45%" />
+</p>
+
+
+# Analyze thresholds
+
+<p align="center">
+  <img src="output2.png" alt="Image 1" width="45%" />
+  <img src="output1.png" alt="Image 2" width="25%" height="323rem" />
+</p>
+
+
 
 ## Features
 - **Text to Image Generation**: Converts given text into an image using character images.
@@ -37,22 +54,14 @@ go run main.go input.txt
 ```
 If no input file is provided, it defaults to `dummy.txt`.
 
-#### Process & Extract Font Images
+#### Process & Extract Font Images (currently in Beta)
 ```sh
-python generate_font.py
+python3 generate_font.py
 ```
 This extracts character images from `image.png` and saves them in `cropped_chars`.
 
-#### Analyze Image Thresholding
-```sh
-python analyze.py
-```
-Outputs different thresholding methods to `output2.png`.
 
 #### Convert & Resize Fonts
-```sh
-python convert.py
-```
 Processes all PNG images in `archive/train copy` and applies resizing & padding.
 
 ## 📂 Project Structure
