@@ -60,7 +60,10 @@ cd go_writes
 ```sh
 go run main.go input.txt
 ```
-If no input file is provided, it defaults to `dummy.txt`.
+If no input.txt file is provided, it defaults to `dummy.txt`.
+```sh
+go run main.go
+```
 
 #### Process & Extract Font Images (currently in Beta)
 ```sh
